@@ -5,10 +5,25 @@ const User = require("../models/User");
 
 //create a post
 router.post("/", async (req, res) => {
-    const newPost = new Post(req.body);
     try {
-      const savedPost = await newPost.save();
-      res.status(200).json(savedPost);
+      const user = await User.findById(req.body.userId);
+      if(user) {
+        const newPost = new Post(req.body);
+        const savedPost = await newPost.save();
+
+        const { password, updatedAt, username, ...other } = user._doc;
+
+        const retValue = {
+          postId: savedPost._id,
+          title: savedPost.title,
+          desc: savedPost.desc,
+          createdBy: username,
+          createdAt: savedPost.createdAt
+        }
+        res.status(200).json(retValue);
+      } else {
+        res.status(400).json("Invalid User Id");
+      }
     } catch (err) {
       res.status(500).json(err);
     }
@@ -32,7 +47,7 @@ router.delete("/:id", async (req, res) => {
 
 
 //like a post
-router.put("/:id/like", async (req, res) => {
+router.put("/like/:id", async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
       if (!post.likes.includes(req.body.userId)) {
@@ -51,7 +66,7 @@ router.put("/:id/like", async (req, res) => {
 
 
 //dislike a post
-router.put("/:id/dislike", async (req, res) => {
+router.put("/dislike/:id", async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
       if (!post.dislikes.includes(req.body.userId)) {
@@ -69,7 +84,7 @@ router.put("/:id/dislike", async (req, res) => {
 });
 
 //comment on a post
-router.put("/:id/comment", async (req, res) => {
+router.put("/comment/:id", async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
       await post.updateOne({ $push: { comments: req.body.commentBody } });
@@ -84,7 +99,14 @@ router.put("/:id/comment", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      res.status(200).json(post);
+      res.status(200).json({
+        id: post._id,
+        title: post.title,
+        desc: post.desc,
+        createdAt: post.createdAt,
+        likes: post.likes.length,
+        comments: post.comments
+      });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -92,7 +114,7 @@ router.get("/:id", async (req, res) => {
 
 
 //get timeline posts
-router.get("/posts/:id", async (req, res) => {
+router.get("/all_posts/:id", async (req, res) => {
     try {
       const userPosts = await Post.find();
       res.json(userPosts)
