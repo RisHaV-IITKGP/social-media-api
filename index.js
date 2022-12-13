@@ -22,8 +22,8 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
-app.use("/api/users", userRoute);
-app.use("/api/auth", authRoute);
+app.use("/api", userRoute);
+app.use("/api/authenticate", authRoute);
 app.use("/api/posts", postRoute);
 
 app.get("/", (req, res) => {

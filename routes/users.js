@@ -5,8 +5,18 @@ const router = require("express").Router();
 router.get("/:id", async (req, res) => {
     try {
       const user = await User.findById(req.params.id);
-      const { password, updatedAt, ...other } = user._doc;
-      res.status(200).json(other);
+      if(user) {
+        const { password, updatedAt, ...other } = user._doc;
+
+        const retValue = {
+          username: other.username,
+          followers: other.followers.length,
+          followings: other.followings.length
+        };
+        res.status(200).json(retValue);
+      } else {
+        res.status(400).json("User not found !")
+      }
     } catch (err) {
       res.status(500).json(err);
     }
@@ -14,7 +24,7 @@ router.get("/:id", async (req, res) => {
 
 
 //follow a user
-router.put("/:id/follow", async (req, res) => {
+router.put("/follow/:id", async (req, res) => {
     if (req.body.userId !== req.params.id) {
       try {
         const user = await User.findById(req.params.id);
@@ -27,7 +37,7 @@ router.put("/:id/follow", async (req, res) => {
           res.status(403).json("you already follow this user");
         }
       } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json("Invalid User");
       }
     } else {
       res.status(403).json("you cant follow yourself");
@@ -36,7 +46,7 @@ router.put("/:id/follow", async (req, res) => {
 
 
 //unfollow a user
-router.put("/:id/unfollow", async (req, res) => {
+router.put("/unfollow/:id", async (req, res) => {
     if (req.body.userId !== req.params.id) {
       try {
         const user = await User.findById(req.params.id);
@@ -49,7 +59,7 @@ router.put("/:id/unfollow", async (req, res) => {
           res.status(403).json("you dont follow this user");
         }
       } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json("Invalid User");
       }
     } else {
       res.status(403).json("you cant unfollow yourself");
