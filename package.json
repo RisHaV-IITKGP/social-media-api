@@ -4,7 +4,8 @@
   "description": "API for a social media app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev_start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
