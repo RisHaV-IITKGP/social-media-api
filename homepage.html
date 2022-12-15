@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>social-media-api</title>
+   </head>
+
+<body>
+    <div> List of API Endpoints </div>
+    <p> 
+    
+    POST /api/authenticate<br>
+        Input  : Email, password<br>
+        Output : JWT Token for the corresponding user<br>
+        <br>
+    GET /api/{userId}<br>
+        Output : returns user name, number of followers and followings<br>
+        <br>
+    PUT /api/follow/{userId}<br>
+        Input  : Current user's userId<br>
+        Output : Current user follows the given user<br>
+        <br>
+    PUT /api/unfollow/{userId}<br>
+        Input  : Current user's userId<br>
+        Output : Current user unfollows the given user<br>
+        <br>
+    POST /api/posts<br>
+        Input  : userId, Title, Description<br>
+        Output : postId, userId, title, description, creation time<br>
+        <br>
+    DELETE /api/posts/{postId}<br>
+        Input  : userId<br>
+        Output : mentioned post is deleted if creater is current user<br>
+        <br>
+    PUT /api/posts/like/{postId}<br>
+        Input  : userId<br>
+        Output : mentioned post is liked<br>
+        <br>
+    PUT /api/posts/dislike/{postId}<br>
+        Input  : userId<br>
+        Output : mentioned post is disliked<br>
+        <br>
+    PUT /api/posts/comment/{postId}<br>
+        Input  : commentBody<br>
+        Output : A comment with given body is added to the post<br>
+        <br>
+    PUT /api/posts/{postId}<br>
+        Output : returns corresponding post, with likes and comments<br>
+        <br>
+    PUT /api/posts/all_posts/all<br>
+        Output : returns all posts in the API<br>
+    </p>
+</body>
+</html>

@@ -66,8 +66,10 @@
   
       $ git clone
       $ cd social-media-api
-
 * Install dependencies and run
 
       $ npm install
       $ npm run dev_start
+
+
+### Sample test data can be found under SampleDatabase.json

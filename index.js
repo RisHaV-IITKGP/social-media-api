@@ -27,7 +27,7 @@ app.use("/api/authenticate", authRoute);
 app.use("/api/posts", postRoute);
 
 app.get("/", (req, res) => {
-    res.send("Homepage Loaded")
+    res.sendFile('/homepage.html', {root: __dirname })
 })
 
 app.listen(8800, () => {
