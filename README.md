@@ -2,9 +2,9 @@
 
 ![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
 [![Maintenance](https://img.shields.io/badge/Maintained-yes-green.svg)](https://github.com/RisHaV-IITKGP/social-media-api)
-[![Maintenance](https://img.shields.io/badge/Maintained-yes-green.svg)](https://social-media-api-8vix.onrender.com)
+[![Maintenance](https://img.shields.io/badge/Deployed-yes-green.svg)](https://social-media-api-8vix.onrender.com)
 
-## Link to hosted app : [social-media-api](https://github.com/RisHaV-IITKGP/social-media-api)
+## Link to hosted app : [social-media-api](https://social-media-api-8vix.onrender.com)
 
 ## Dependencies
 
