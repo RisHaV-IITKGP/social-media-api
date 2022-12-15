@@ -1,0 +1,115 @@
+{
+    "_id": {
+        "$oid": "63981a371a2ea46c232f2c31"
+    },
+    "username": "kei",
+    "email": "kei@gmail.com",
+    "password": "kei123",
+    "followers": [],
+    "followings": [
+        "63981b012c39502aef08900c",
+        "63981aec5fff89a0607b4fca"
+    ],
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1670912567913"
+        }
+    },
+    "updatedAt": {
+        "$date": {
+            "$numberLong": "1670914399429"
+        }
+    },
+    "__v": {
+        "$numberInt": "0"
+    }
+}
+
+{
+    "_id": {
+        "$oid": "63981aec5fff89a0607b4fca"
+    },
+    "username": "john",
+    "email": "john@gmail.com",
+    "password": "john123",
+    "followers": [
+        "63981a371a2ea46c232f2c31"
+    ],
+    "followings": [
+        "63981b012c39502aef08900c"
+    ],
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1670912748118"
+        }
+    },
+    "updatedAt": {
+        "$date": {
+            "$numberLong": "1670914399371"
+        }
+    },
+    "__v": {
+        "$numberInt": "0"
+    }
+}
+
+{
+    "_id": {
+        "$oid": "63981b012c39502aef08900c"
+    },
+    "username": "light_Y",
+    "email": "light@gmail.com",
+    "password": "kira123",
+    "followers": [
+        "63981a371a2ea46c232f2c31",
+        "63981aec5fff89a0607b4fca"
+    ],
+    "followings": [],
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1670912769771"
+        }
+    },
+    "updatedAt": {
+        "$date": {
+            "$numberLong": "1670914221504"
+        }
+    },
+    "__v": {
+        "$numberInt": "0"
+    }
+}
+
+
+{
+    "_id": {
+        "$oid": "6398289953b98c0d94101361"
+    },
+    "userId": "63981a371a2ea46c232f2c31",
+    "title": "Hi 1",
+    "desc": "My first post !",
+    "likes": [
+        "63981a371a2ea46c232f2c31",
+        "63981aec5fff89a0607b4fca"
+    ],
+    "dislikes": [
+        "63981b012c39502aef08900c"
+    ],
+    "comments": [
+        "Looking Nice !",
+        "Great !!"
+    ],
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1670916249763"
+        }
+    },
+    "updatedAt": {
+        "$date": {
+            "$numberLong": "1670916802347"
+        }
+    },
+    "__v": {
+        "$numberInt": "0"
+    }
+}
