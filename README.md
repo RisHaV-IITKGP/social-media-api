@@ -53,10 +53,10 @@
         Input  : commentBody
         Output : A comment with given body is added to the post
     
-    PUT /api/posts/{postId}
+    GET /api/posts/{postId}
         Output : returns corresponding post, with likes and comments
 
-    PUT /api/posts/all_posts/all
+    GET /api/posts/all_posts/all
         Output : returns all posts in the API
 
 
